@@ -1,0 +1,64 @@
+{% extends 'base_layout.html' %}
+{% load static from static %}
+
+{% block content %}
+
+<title>Task 5 | Jigsaw</title>
+
+{% include 'navbar.html' %}
+
+<!-- Trigger/Open The Modal -->
+<button id="myBtn" class="link-light p-1 fixed-top fs-6 fw-semibold bg-transparent" style="cursor: pointer; border: 2px solid white; border-radius: 10px; width: 100px; margin:10px 0 0 250px;">Guidelines</button>
+
+<div style="width: 400px; margin: 50px auto 0 auto;">
+
+    <h1 class="heading">Jigsaw Puzzle</h1>
+
+</div>
+
+<div class="container-fluid q-container bg-transparent bg-gradient" style="max-width: 100%; height: 90vh; margin: 0 auto 0 auto; padding: 0; overflow-y: scroll;">
+
+    <iframe height="700px" width="100%" allow="web-share; fullscreen" style="border:none; width: 100% !important; position: static;display: block !important; margin: 0 !important;" src="https://amuselabs.com/pmm/jigsaw?id=de5c7d07&set=9e3ffc4019e054030b7d6ec97b71bc913e15734701a38e37a3ef7bf1262513bd&embed=1" aria-label="Puzzle Me"> </iframe>
+
+    <form method="post" action="{% url 'levels:level-one:puzzle_submit'%}">
+        {% csrf_token %}
+        {% if not submit_button %} <input class="link" type="submit" id="submitBtn" value="End Task"> {% endif %}
+    </form>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+
+        <span class="close">&times;</span>
+
+        <div class="modal-header">
+
+            <h3>Task Guidelines</h3>
+
+          </div>
+          <div class="modal-body">
+
+            <ul class="fs-5">
+                <li>There is no time limit.</li>
+                <li>You should only click "submit" after your handler has verified your window.</li>
+                <li>You should clear your doubts when solving, with your handler directly and immediately.</li>
+                <li>You will not be able to make changes after you have pressed the submit button</li>
+                <!-- <li>Your game will automatically submit when you solve the puzzle completely</li> -->
+                <li>Your task will only end after your handler presses the "End Task" Button</li>
+                <li>You are not allowed to press the "End Task" button at the bottom of the page.</li>
+                <li>You are not allowed to click any other option in the Puzzle window.</li>  
+            </ul>
+
+          </div>
+
+    </div>
+
+</div>
+
+<script src="{% static "modal.js" %}"></script>
+<script src="{% static "submit-unlock.js" %}"></script>
+
+{% endblock %}

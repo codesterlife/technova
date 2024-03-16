@@ -1,0 +1,13 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<div class="r-container container-fluid bg-black bg-gradient" style="max-width: 50%; margin: 15vh auto; padding: 20px; border-radius: 10px;">
+  <h2>QnA Result</h2>
+  <p>You answered {{ count }} out of {{ q_count }} questions correctly!</p>
+  <p>Your score is: {{ score }} out of {{ max_score }}</p>
+  <p>total score: {{ user_score }}</p>
+  <a href="{% url 'levels:level-one:level-one-dashboard' %}" class="link text-center" style="width: 120px; padding: 5px;"><i class="bi bi-arrow-left"></i> Level One Dashboard</a>
+</div>
+  
+{% endblock %}

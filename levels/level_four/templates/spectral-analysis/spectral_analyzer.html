@@ -1,0 +1,81 @@
+{% extends 'base_layout.html' %}
+{% load static from static %}
+
+{% block content %}
+
+<title>Hidden Message 2 | Technova</title>
+
+{% include 'navbar.html' %}
+
+<!-- Trigger/Open The Modal -->
+<button id="myBtn" class="link-light p-1 fixed-top fs-6 fw-semibold bg-transparent" style="cursor: pointer; border: 2px solid white; border-radius: 10px; width: 100px; margin:10px 0 0 250px;">Guidelines</button>
+
+<div class="container-fluid tasks-container">
+    <h1 class="heading">Find The Hidden Message - Part 2</h1>
+    <div class="continer-fluid bg-black lore-container bg-gradient">
+        <p>Ouroboros, having deciphered the mystical scroll in the depths of Blackwood Creek, finds himself drawn deeper into the enigmatic mysteries of the realm. As he explores the rugged terrain surrounding the place where he discovered the scroll, he stumbles upon a hidden cave, its entrance veiled by tangled vines and shadowy foliage.</p>
+
+        <p>Intrigued by the whisper of an unfamiliar sound emanating from within, Ouroboros cautiously ventures into the cavern's depths. The air grows thick with anticipation as he navigates through winding passages, the faint glow of luminescent fungi casting eerie shadows upon the ancient walls.</p>
+            
+        <p>Suddenly, amidst the echoing silence of the cave, Ouroboros discerns a rhythmic pattern—a haunting melody woven into the very fabric of the underground chamber. Entranced by the ethereal notes, he realizes that he has stumbled upon another cryptic message, encoded in a language as enigmatic as the scroll.</p>
+
+        <div class="audio-container" style=" width: 500px; display: flex; align-items: center;">
+            
+            <audio controls>
+                <source src="https://res.cloudinary.com/dh7c22gw9/video/upload/v1709406095/assets/audios/level4_task1_audio_ajos0l.wav" type="audio/wav">
+            Your browser does no support audio elements. Download the audio to play.
+            </audio>
+
+            <a href="https://res.cloudinary.com/dh7c22gw9/video/upload/v1709406095/assets/audios/level4_task1_audio_ajos0l.wav" class="link mx-2" style="width: 50px; text-align: center; padding: 5px;" target="_blank" title="Click to listen in a new tab."><i class="bi bi-soundwave"></i></a>
+
+        </div>
+            
+        <form action="{% url 'levels:level-four:spectral_analyzer_submit' %}" method="post" class="answer-form">
+            {% csrf_token %}
+
+            {{ form }}
+
+            <button type="submit" class="link" name="answer-submit" id="answer-submit" style="display: block; margin: 10px 0;">Check</button>
+
+            <span class="error text-danger" name="error" style="visibility: hidden;">Try Again</span>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+
+        <span class="close">&times;</span>
+
+        <div class="modal-header">
+
+            <h3>Task Guidelines</h3>
+
+          </div>
+          <div class="modal-body">
+
+            <ul class="fs-5">
+                <li>You are allowed to use online tools or external softwares to find the answer.</li>
+                <li>There is no time limit.</li>
+                <li>You should clear your doubts during the task, with your handler directly and immediately.</li>
+                <li>You task will only end when you check the correct answer in proper format.</li>
+                <li>You are allowed to check the answer as many times as you want.</li>
+                <li>Make sure you are throughly checking the answer yourself.</li>
+            </ul>
+
+          </div>
+
+    </div>
+
+</div>
+
+<script src="{% static "modal.js" %}"></script>
+<script>const cipher = "{{ cipher }}";</script><script src="{% static "answer-handler.js" %}"></script>
+
+{% endblock %}

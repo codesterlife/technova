@@ -1,0 +1,31 @@
+{% extends "base_layout.html" %}
+{% load static from static %}
+
+
+{% block content %}
+
+<title>Welcome | Technova 6.0</title>
+
+<div class="text-center" style="width: 100vw; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <div class="sub-container"  style="display: flex; flex-wrap: nowrap; align-items: center;">
+        <h1 class="index-title mx-3" style="width: 100%; font-size: 165px; margin-top: 0; margin-bottom: 0; padding: 0;">TECHNOVA 6.0</h1>
+        <img src="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709406044/assets/images/insight_24_h5ujdh.png" style="width: 165px; height: 165px;">
+    </div>
+
+    <h6>Powered by <a class="link-light" href="http://insight.uoc.ac.in/" target="_blank">Insight'24<i class="bi bi-box-arrow-up-left"></i></a></h6>
+
+    <div class="nav justify-content-center fs-4 fw-semibold">
+
+        <li class="nav-item">
+        <h4 class="px-2"><a class="p-2 link" href="{% url 'accounts:login' %}"><i class="bi bi-box-arrow-in-right"></i> Login</a></h4>
+        </li>
+
+        <li class="nav-item">
+        <h4 class="px-2"><a class="p-2 link" href="{% url 'accounts:register' %}"><i class="bi bi-person-add"></i> Register</a></h4>
+        </li>
+
+    </div>
+
+</div>
+
+{% endblock %}

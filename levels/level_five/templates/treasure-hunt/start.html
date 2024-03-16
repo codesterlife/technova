@@ -1,0 +1,71 @@
+{% extends 'base_layout.html' %}
+{% load static from static %}
+
+{% block content %}
+
+<title>Clue 1</title>
+
+{% include 'navbar.html' %}
+
+<!-- Trigger/Open The Modal -->
+<button id="myBtn" class="link-light p-1 fixed-top fs-6 fw-semibold bg-transparent" style="cursor: pointer; border: 2px solid white; border-radius: 10px; width: 100px; margin:10px 0 0 250px;">Guidelines</button>
+
+<h1 class="heading" style="margin-top: 50px;">Treasure Hunt</h1>
+
+<div class="r-container container-fluid bg-transparent bg-gradient" style="max-width: 80%; margin: 1.5vh auto; padding: 20px; border-radius: 10px; display: flex; flex-direction: column;">
+    <h2>Here is your first clue: </h2>
+  
+    <div class="sub-container" style="display: flex; align-items: center; margin: 2em auto;">
+
+        <img src="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709406048/assets/images/clue_1_putpgl.png" width="640" height="480" style="border-radius: 10px;">
+
+        <a href="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709406048/assets/images/clue_1_putpgl.png" class="link px-2 py-1" title="click for expanded view." style="position: absolute; margin: 430px 0 0 600px" target="_blank"><i class="bi bi-arrows-fullscreen"></i></a>
+
+        <form action="{% url 'levels:level-five:clue_two' %}" method="post" class="answer-form">
+            {% csrf_token %}
+                    
+            {{ form }}
+
+            <input type="submit" class="link" value="check" name="answer-submit" id="answer-submit" style="display: block; margin: 10px 0;">
+
+            <span class="error text-danger" name="error" style="visibility: hidden;">Try Again</span>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+
+        <span class="close">&times;</span>
+
+        <div class="modal-header">
+
+            <h3>Task Guidelines</h3>
+
+          </div>
+          <div class="modal-body">
+
+            <ul class="fs-5">
+                <li>You are allowed to use online tools.</li>
+                <li>There is no time limit.</li>
+                <li>You should clear your doubts during the task, with your handler directly and immediately.</li>
+                <li>You task will only end when you check the correct answer in proper format.</li>
+                <li>You are allowed to check the answer as many times as you want.</li>
+            </ul>
+
+          </div>
+
+    </div>
+
+</div>
+
+<script src="{% static "modal.js" %}"></script>
+<script>const cipher = "{{ answer }}";</script><script src="{% static "answer-handler.js" %}"></script>
+  
+{% endblock %}

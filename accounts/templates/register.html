@@ -1,0 +1,43 @@
+{% load static from static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Register | Technova</title>
+    <style>
+        video {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+    <video id="background-video" autoplay loop muted poster="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709406060/assets/images/bg_video_poster_xwfplm.png">
+        <source src="https://res.cloudinary.com/dh7c22gw9/video/upload/v1709403583/assets/videos/bg_video_extended_enbkne.mp4" type="video/mp4">
+      </video>
+
+
+    <h4 class="heading">Register here.</h4>
+    <form class="site-form register" action="/accounts/register/" method="post">
+        {% csrf_token %}
+            <div class="form-container">
+            {{ form }}
+            <input type="submit" value="Register">
+
+            <span>Have an account? <a href="{% url 'accounts:login' %}">Login</a></span>
+            </div>
+    </form>
+</body>
+</html>
+

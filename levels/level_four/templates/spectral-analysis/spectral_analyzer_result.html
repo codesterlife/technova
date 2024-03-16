@@ -1,0 +1,14 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<div class="r-container container-fluid bg-black bg-gradient" style="max-width: 50%; margin: 15vh auto; padding: 20px; border-radius: 10px;">
+    <h5 style="text-align: justify;">
+        As Ouroboros fully decodes the haunting melody, it reveals a solemn truth: the tale of Pablo, a once-famed musician ensnared by the influence of Sauron, his life forever altered by dark forces beyond his control."</h5>
+    <p>You have successfully completed the task!</p>
+    <p>You scored {{ score }} points</p>
+    <p>total score: {{ user_score }}</p>
+    <a href="{% url 'levels:level-four:level-four-dashboard' %}" class="link text-center" style="width: 130px; padding: 5px;"><i class="bi bi-arrow-left"></i> Level Four Dashboard</a>
+  </div>  
+
+{% endblock %}

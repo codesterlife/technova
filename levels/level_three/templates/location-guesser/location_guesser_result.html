@@ -1,0 +1,13 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<div class="r-container container-fluid bg-black bg-gradient" style="max-width: 50%; margin: 15vh auto; padding: 20px; border-radius: 10px;">
+    <h5 style="text-align: justify;">
+    <p>You have successfully completed the task!</p>
+    <p>You scored {{ score }} points</p>
+    <p>total score: {{ user_score }}</p>
+    <a href="{% url 'levels:levels-dashboard' %}" class="link text-center" style="width: 120px; padding: 5px;"><i class="bi bi-arrow-left"></i> Levels Dashboard</a>
+  </div>  
+
+{% endblock %}

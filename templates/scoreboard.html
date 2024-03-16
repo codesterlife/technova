@@ -1,0 +1,42 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+    <title>Scoreboard | Technova</title>
+
+    {% include 'navbar.html' %}
+
+    <div class="board" style="width: 50%; margin: 10% auto; color: black; text-align: center; overflow-y: auto;">
+
+        <div class="score">
+            <table class="table table-dark table-striped">
+
+                <thead>
+                    <tr>
+                        <!-- <th scope="col">#</th> -->
+                        <th scope="col">Name</th>
+                        <th scope="col">Score</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for score in scores %}
+
+                        <tr>
+                            <!-- <th scope="row">{{ count }}</th> -->
+                            <td>Team {{ score.user.username }}</td>
+                            <td>{{ score.score }}</td>
+                        </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+
+{% endblock %}
+

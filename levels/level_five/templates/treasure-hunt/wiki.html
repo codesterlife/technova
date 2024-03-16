@@ -1,0 +1,38 @@
+{% extends "base_layout.html" %}
+{% load static from static %}
+
+{% block content %}
+
+<title>Final Clue | Technova</title>
+
+<nav class="navbar fixed-top fs-6 bg-transparent bg-gradient" style="margin: 0px auto 20px auto; padding: 0; height: 10px;">
+    <div class="container-fluid fw-semibold">
+
+        <ul class="nav nav-underline justify-content-start">
+            <li class="nav-item" style="margin-left: 20px;"><a class="nav-link link-light" title="Go Back"><button type="submit" onClick="javascript:history.go(-1);" style="all: unset; cursor: pointer;"><i class="bi bi-arrow-left"></i> Prev Page</button></a></li>
+        </ul>
+    </div>
+</nav>
+        
+
+<div style="margin: 50px auto 0 auto">
+    <iframe src="https://en.wikipedia.org/wiki/Kochi" style="width: 100%; height: 720px; margin: 0; padding: 0;"></iframe>
+
+    <form method="post" action="{% url 'levels:level-five:clue_four_submit' %}">
+        {% csrf_token %}
+        <input type="submit" class="link" id="submitBtn" value="End Task" style="display: block; margin: 10px auto 10px auto;">
+    </form>
+</div>
+
+<script>
+    window.onunload = refreshParent;
+    function refreshParent() {
+        window.opener.location.reload();
+    }
+</script>
+
+<script src="{% static "click-tracker.js" %}"></script>
+
+<script src="{% static "submit-unlock.js" %}"></script>
+
+{% endblock  %}

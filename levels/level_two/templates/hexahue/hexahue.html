@@ -1,0 +1,73 @@
+{% extends 'base_layout.html' %}
+{% load static from static %}
+
+{% block content %}
+<title>Crack the Cipher | Technova</title>
+
+{% include 'navbar.html' %}
+
+<!-- Trigger/Open The Modal -->
+<button id="myBtn" class="link-light p-1 fixed-top fs-6 fw-semibold bg-transparent" style="cursor: pointer; border: 2px solid white; border-radius: 10px; width: 100px; margin:10px 0 0 250px;">Guidelines</button>
+
+<div class="container-fluid tasks-container">
+    <h1 class="heading">Crack the Cipher</h1>
+    <div class="continer-fluid bg-black lore-container bg-gradient">
+        <p>In the mystical realm of Blackwood Creek, nestled amid the Cinder Valley, a cryptic force known as Sauron lay veiled in ancient secrecy. Ouroboros, a daring young adventurer, unraveled the enigma when he chanced upon a concealed portal during his exploration. Crossing its threshold, he found himself in front of a mesmerizing scroll of colors pictured in elusive patterns—a message, that resonated a hidden meaning.</p>
+
+        <p>Driven by an insatiable curiosity, Ouroboros embarked on a quest to decipher the cryptic scroll. Each revelation bound him closer to the mystical forces of Sauron, forever altering the destiny of Blackwood Creek. As the guardians, the authors of the scroll, observed, they recognized Ouroboros as the chosen one fated to unveil the cipher's full meaning.</p>
+        
+        <form action="{% url 'levels:level-two:hexahue_submit' %}" method="post" class="answer-form">
+            {% csrf_token %}
+                    
+            {{ form }}
+
+            <input type="submit" class="link" value="check" name="answer-submit" id="answer-submit" style="display: block; margin: 10px 0;">
+
+            <span class="error text-danger" name="error" style="visibility: hidden;">Try Again</span>
+
+        </form>
+
+        <div class="sub-container" style="display: flex; width: 200px; flex-direction: column-reverse; float: right; margin-top: -180px;">
+
+            <a href="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709406039/assets/images/level2_task3_img_bx13r9.png" class="link" style="text-align: center; padding: 10px;" target="_blank" title="Click for Expanded view."><i class="bi bi-arrows-fullscreen"></i> Cipher</a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+
+        <span class="close">&times;</span>
+
+        <div class="modal-header">
+
+            <h3>Task Guidelines</h3>
+
+          </div>
+          <div class="modal-body">
+
+            <ul class="fs-5">
+                <li>You are allowed to use online tools to find the answer.</li>
+                <li>You are not allowed to use tools such as Google Lens or similar image search softwares.</li>
+                <li>There is no time limit.</li>
+                <li>You should clear your doubts during the task, with your handler directly and immediately.</li>
+                <li>You task will only end when you check the correct answer in proper format.</li>
+                <li>You are allowed to check the answer as many times as you want.</li>
+            </ul>
+
+          </div>
+
+    </div>
+
+</div>
+
+<script src="{% static "modal.js" %}"></script>
+<script>const cipher = "{{ cipher }}";</script><script src="{% static "answer-handler.js" %}"></script>
+
+{% endblock %}

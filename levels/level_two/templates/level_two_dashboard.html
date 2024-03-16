@@ -1,0 +1,40 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+{% include 'navbar.html' %}
+
+<title>Level 2 | Technova</title>
+<div class="level_two tasks-container container-fluid bg-transparent">
+    <h1>Level 2</h1>
+
+    <div class="row mt-5">
+
+        <div class="col-sm-3 mb-3 mb-sm-0">
+            <div class="card link p-4">
+                <h3><a href="{% url "levels:level-two:picture_to_code_detail" %}" style="text-decoration: none; color: #ffffff;">Task <i class="bi bi-1-square"></i><h5 style="width: 170px; margin: 0 auto;">Picture to Code <span class="text-info fs-6">50<span></h5></a></h3>
+            </div>
+        </div>
+
+        <div class="col-sm-3 mb-3 mb-sm-0">
+            <div class="card link p-4">
+                <h3><a href="{% url "levels:level-two:audio_decode_detail" %}" style="text-decoration: none; color: #ffffff;">Task <i class="bi bi-2-square"></i><h5 style="width: 170px; margin: 0 auto;">Hidden Message <span class="text-info fs-6">50<span></h5></a></h3>
+            </div>
+        </div>
+
+        <div class="col-sm-3 mb-3 mb-sm-0">
+            <div class="card link p-4">
+                <h3><a href="{% url 'levels:level-two:hexahue_detail' %}" style="text-decoration: none; color: #ffffff;">Task <i class="bi bi-3-square"></i><h5 style="width: 180px; margin: 0 auto;">Crack the Cipher <span class="text-info fs-6">50<span></h5></a></h3>
+            </div>
+        </div>
+
+        <div class="col-sm-3 mb-3 mb-sm-0">
+            <div class="card link p-4">
+                <h3><a href="{% url 'levels:level-two:img_decode_detail' %}" style="text-decoration: none; color: #ffffff;">Task <i class="bi bi-4-square" ></i><h5 style="width: 130px; margin: 0 auto;">Image Decode <span class="text-info fs-6">50<span></h5></a></h3>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

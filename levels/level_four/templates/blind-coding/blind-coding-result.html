@@ -1,0 +1,13 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<div class="r-container container-fluid bg-black bg-gradient" style="max-width: 50%; margin: 15vh auto; padding: 20px; border-radius: 10px;">
+    <p>You have successfully completed the task!</p>
+    <p>You scored {{ score }} points</p>
+    <p>total score: {{ user_score }}</p>
+    <a href="#" class="link" style="width: 200px; padding: 5px; text-align: center" onclick="window.open('', '_self', ''); window.close();
+    "><i class="bi bi-x-square"></i> Close Window</a>
+  </div>  
+
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends "base_layout.html" %}
+{% load static from static %}
+
+{% block content %}
+
+<title>Picture to Code | Technova</title>
+
+{% include 'navbar.html' %}
+
+<!-- Trigger/Open The Modal -->
+<button id="myBtn" class="link-light p-1 fixed-top fs-6 fw-semibold bg-transparent" style="cursor: pointer; border: 2px solid white; border-radius: 10px; width: 100px; margin:10px 0 0 250px;">Guidelines</button>
+
+<div class="container-fluid tasks-container">
+    <h1 class="heading">Blind Coding</h1>
+
+    <div class="continer-fluid bg-black q-container bg-gradient" style="max-width: 100%; height: 75vh; overflow: hidden; margin: 2vh auto;">
+
+        <h4>Write Code to print this pattern BLINDLY!!</h4>
+
+        <div class="sub-container" style="display: flex; align-items: center; margin: 2em auto; max-width: 70%;">
+
+            <img src="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709660868/assets/images/blind_pattern_2_ghsel7.png" width="450" height="320" style="border-radius: 10px;">
+
+            <a href="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709660868/assets/images/blind_pattern_2_ghsel7.png" class="link px-2 py-1" style="position: absolute; margin: 270px 0 0 410px" target="_blank" title="Click for Expanded View."><i class="bi bi-arrows-fullscreen"></i></a>
+
+            <a href="{% url "levels:level-four:online_ide" %}" class="link p-3 fw-bold" onclick="window.open(this.href, 'online_ide',
+            'left=20,top=20,width=1920,height=1080,toolbar=1,resizable=0'); return false;" ><i class="bi bi-code-slash"></i> Online IDE</a>
+            
+        </div>
+
+    </div>
+
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+
+        <span class="close">&times;</span>
+
+        <div class="modal-header">
+
+            <h3>Task Guidelines</h3>
+
+          </div>
+          <div class="modal-body">
+
+            <ul class="fs-5">
+                <li>Write the code to print the given pattern without looking at the screen.</li>
+                <li>There is no time limit.</li>
+                <li>You can choose any of the programming language that is available in the online IDE to write your code.</li>
+                <li>You're laptop will be turned around and you will be provided an external keyboard to write code.</li>
+                <li>You will be allowed to peek at the code for 10 seconds if execution gives wrong output so that you can correct mistakes.</li>
+                <li>Maximum 3 code executions will be allowed.</li>
+                <li>You are not allowed to press any other option in the online IDE</li>
+                <li>Your handler will verify your output before pressing the "End Task" button</li>
+                <li>Your task will only end after your handler presses the "End Task" button</li>
+                <li>You are not allowed to press the "End Task" button at the bottom of the page.</li>
+                <li>You are not allowed to search online for answers</li> 
+            </ul>
+
+          </div>
+
+    </div>
+
+</div>
+
+<script src="{% static "modal.js" %}"></script>
+<script>const cipher = "{{ cipher }}";</script><script src="{% static "answer-handler.js" %}"></script>
+
+{% endblock %}

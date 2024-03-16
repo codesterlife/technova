@@ -1,0 +1,28 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+{% include 'navbar.html' %}
+
+<title>Level 4 | Technova</title>
+
+<div class="level_four tasks-container container-fluid bg-transparent" style="text-align: center;">
+    <h1>Level 4</h1>
+
+    <div class="row mt-5" style="display: flex; justify-content: center;">
+        <div class="col-sm-3 mb-3 mb-sm-0">
+            <div class="card link p-4">
+                <h3><a href="{% url "levels:level-four:spectral_analyzer_detail" %}" style="text-decoration: none; color: #ffffff;">Task <i class="bi bi-1-square"></i><h5 style="width: 175px; margin: 0 auto;">Hidden Message 2 <span class="text-info fs-6">100<span></h5></a></h3>
+            </div>
+        </div>
+
+        <div class="col-sm-3 mb-3 mb-sm-0">
+            <div class="card link p-4">
+                <h3><a href="{% url "levels:level-four:blind_coding_detail" %}" style="text-decoration: none; color: #ffffff;">Task <i class="bi bi-2-square"></i><h5 style="width: 175px; margin: 0 auto;">Blind Coding<span class="text-info fs-6"><br>100<span></h5></a></h3>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %}

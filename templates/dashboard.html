@@ -1,0 +1,14 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+    {% include 'navbar.html' %}
+
+    <title>Dashboard | Technova</title>
+
+    <div class="text-center" style="height: 100vh; width: 100vw; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <h4><a class="p-3 link" href="{% url 'levels:levels-dashboard' %}"> <i class="bi bi-controller"></i> Levels</a></h4>
+        <h4><a class="p-3 link" href="{% url 'user-profile' %}"><i class="bi bi-person-circle"></i> Profile</a></h4>
+    </div>
+
+{% endblock %}

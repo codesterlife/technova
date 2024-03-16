@@ -1,0 +1,63 @@
+{% load static from static %}
+
+<!-- navigation bar -->
+
+<nav class="navbar fixed-top fs-6">
+    <div class="container-fluid fw-semibold">
+
+        <ul class="nav nav-underline justify-content-start">
+            <li class="nav-item" style="margin-left: 20px; transform: scale(1.25);"><a class="nav-link link-light" title="Go Back"><button type="submit" onClick="javascript:history.go(-1);" style="all: unset; cursor: pointer;"><i class="bi bi-arrow-left"></i></button></a></li>
+            <li class="nav-item mx-2" style="transform: scale(1.25);"><a class="nav-link link-light" title="Refresh"><button type="submit" onClick="window.location.reload()" style="all: unset; cursor: pointer;"><i class="bi bi-arrow-clockwise"></i></button></a></li>
+            <li class="nav-item mt-1" style="padding: 5px;">
+                <a class="navbar-brand link-light mx-5" href="{% url 'technova-home' %}">
+            <!-- Put technova favicon img here -->
+                    <img src="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709406044/assets/images/insight_24_h5ujdh.png" alt="Logo" width="12" height="12" style="transform: scale(3);" class="d-inline-block align-text-top">
+                </a>
+            </li>
+        </ul>
+
+        <ul class="nav nav-underline justify-content-end" style="margin-right: 70px;">
+            <li class="nav-item">
+            <a class="nav-link link-light {% if request.path == '/home/' %} active {% endif %}" href="{% url 'technova-home' %}"><i class="bi bi-house"></i> Home</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link link-light {% if request.path == '/levels/' %} active {% endif %}" href="{% url 'levels:levels-dashboard' %}"><i class="bi bi-controller"></i> Levels</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link link-light {% if request.path == '/dashboard/' %} active {% endif %}" href="{% url 'technova-dashboard' %}"><i class="bi bi-speedometer2"></i> Dashboard</a>
+                </li>
+            <li class="nav-item">
+            <a class="nav-link link-light {% if request.path == '/scoreboard/' %} active {% endif %}" href="{% url 'technova-scoreboard' %}"><i class="bi bi-clipboard-data"></i> Scoreboard</a>
+            </li>
+            <!-- dropdown menu -->
+            <li class="nav-item dropdown">
+                <span class="nav-link dropdown-toggle link-light" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-gear"></i> Settings</span>
+                <ul class="dropdown-menu" style="background: linear-gradient(to top, #000c17 10%, #13233a  50%, #000c17  100%);">
+
+                    <li><a class="nav-link link-light px-3  {% if request.path == '/profile/' %} active {% endif %}" href="{% url 'user-profile' %}"><i class="bi bi-person-circle"></i> {{ request.user.username }}</a></li>
+
+                    <li><hr class="dropdown-divider"></li>
+                    
+                    <!--<img src="{% static "images/favicon_white.png" %}" style="width: 18px; height: 22px;">-->
+                    <li><a class="nav-link link-light px-3" href="http://insight.uoc.ac.in/" target="_blank"><i class="bi bi-globe2"></i> Insight'24</a></li>
+
+                    <li><hr class="dropdown-divider"></li>
+
+                    <li>
+                        
+                        <form class="logout-link fix-hover" action="{% url 'accounts:logout' %}" method="post">
+                            {% csrf_token %}
+                            <a class="nav-link link-light px-3" aria-disabled="true"><button type="submit" style="all: unset; cursor: pointer;"><i class="bi bi-box-arrow-in-left"></i> logout</button></a><!-- button default style overrided manually using inline css -->
+                        </form>
+
+                    </li>
+
+                </ul>
+
+            </li>
+
+        </ul>
+
+    </div>
+    
+</nav>    

@@ -1,0 +1,14 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<title>Technova</title>
+
+<div class="container-fluid bg-gradient bg-black" style="width: 45%; height: 30%; margin: 10% auto 0 auto; padding: 100px; border-radius: 10px;">
+    <h3 style="text-align: center;">Sorry, You don't have enough score to play this level. </h3>
+    <hr>
+    <h5 style="text-align: center;">If you have any remaining tasks in the previous levels, try them. If you don't then <span class="text-danger">Game Over.</span> You had a good run!</h5>
+    <input type="submit" class="link" value="Back" onClick="javascript:history.go(-1);" style="padding: 5px; width: 100px; font-size: large;">
+</div>
+
+{% endblock %}

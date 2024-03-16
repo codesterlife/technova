@@ -1,0 +1,29 @@
+{% extends "base_layout.html" %}
+{% load static from static %}
+
+{% block content %}
+
+<title>Online IDE | Technova</title>
+
+{% comment %} {% include "navbar.html" %} {% endcomment %}
+
+<div style="margin: 2vh auto">
+    <iframe src="https://www.online-ide.com/7NJyplWRgx" style="width: 100%; height: 720px; margin: 0; padding: 0"></iframe>
+
+    <form method="post" action="{% url 'levels:level-two:picture_to_code_submit' %}">
+        {% csrf_token %}
+        <input type="submit" class="link" id="submitBtn" value="End Task" style="display: block; margin: 50px auto 0 auto;">
+    </form>
+
+</div>
+
+<script>
+    window.onunload = refreshParent;
+    function refreshParent() {
+        window.opener.location.reload();
+    }
+</script>
+
+<script src="{% static "submit-unlock.js" %}"></script>
+
+{% endblock  %}

@@ -1,0 +1,23 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<title>Level 5 | Technova</title>
+
+{% include 'navbar.html' %}
+
+<div class="container-fluid bg-transparent" style="text-align: center; max-width: 80vw; height: 60vh; margin: 7em auto;">
+    <h1>Level 5</h1>
+
+    <div class="row">
+
+        <div class="col-sm-3 mb-3 mb-sm-0" style="width: 300px; margin: 0 auto;">
+            <div class="card link p-4">
+                <h3><a href="{% url "levels:level-five:treasure_hunt_detail" %}" style="text-decoration: none; color: #ffffff;">Task <i class="bi bi-1-square"></i><h5 style="width: 160px; margin: 0 auto;">Treasure Hunt<span class="text-info fs-6"> 200<span></h5></a></h3>
+            </div>
+        </div>
+    
+    </div>
+</div>
+
+{% endblock %}

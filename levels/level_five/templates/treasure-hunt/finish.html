@@ -1,0 +1,73 @@
+{% extends 'base_layout.html' %}
+{% load static from static %}
+
+{% block content %}
+
+<title>Clue 4</title>
+
+{% include 'navbar.html' %}
+
+<!-- Trigger/Open The Modal -->
+<button id="myBtn" class="link-light p-1 fixed-top fs-6 fw-semibold bg-transparent" style="cursor: pointer; border: 2px solid white; border-radius: 10px; width: 100px; margin:10px 0 0 250px;">Guidelines</button>
+
+<h1 class="heading" style="margin-top: 7vh;">Treasure Hunt</h1>
+
+<div class="r-container container-fluid bg-black bg-gradient" style="max-width: 80%; padding: 20px; border-radius: 10px; display: flex; flex-direction: column;">
+    <h2>Here is your Final clue: </h2>
+  
+    <div class="sub-container" style="display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
+
+    <h5>Your Final clue is a game! You will start at a wikipedia page. You have reach the target wikipedia page by clicking through the hyperlinks in the pages. Each hyperlink you click will lead you to another wikipedia page.</h5>
+
+    <span style="font-weight: bold; text-decoration: underline;">Target Page</span>
+
+    <div class="sub-container" style="display: flex; align-items: center; justify-content: space-between; flex-direction: row; margin: 1em auto; max-width: 70%;">
+
+    <div class="mx-5">
+        <img src="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709406045/assets/images/wiki_end_dzkhqs.png"" width="680" height="350" style="border-radius: 10px;">
+
+        <a href="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709406045/assets/images/wiki_end_dzkhqs.png" class="link px-2 py-1" style="position: absolute; margin: -40px 0 0 640px" target="_blank" title="Click for Expanded View."><i class="bi bi-arrows-fullscreen"></i></a>
+    </div>
+
+    <a href="{% url "levels:level-five:clue_four_wiki" %}" class="link p-3 mx-2 fw-bold" onclick="window.open(this.href, 'clue_four_wiki',
+    'left=20,top=20,width=1920,height=1080,toolbar=1,resizable=0'); return false;" >Start</a>
+
+    </div>
+
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+
+        <span class="close">&times;</span>
+
+        <div class="modal-header">
+
+            <h3>Task Guidelines</h3>
+
+          </div>
+          <div class="modal-body">
+
+            <ul class="fs-5">
+                <li>Reach the given target wikipedia page from the starting wikipedia page.</li>
+                <li>You are only allowed to click the hyperlinks in the article section of every wikipedia page.</li>
+                <li>You should clear your doubts during the task, with your handler directly and immediately.</li>
+                <li>Your handler will verify your output before pressing the "End Task" button</li>
+                <li>Your task will only end after your handler presses the "End Task" button</li>
+                <li>You are not allowed to press the "End Task" button at the bottom of the page.</li>
+                <li>You are not allowed to search online for answers</li> 
+            </ul>
+
+          </div>
+
+    </div>
+
+</div>
+
+<script src="{% static "modal.js" %}"></script>
+<script>const cipher = "{{ answer }}";</script><script src="{% static "answer-handler.js" %}"></script>
+  
+{% endblock %}

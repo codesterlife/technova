@@ -1,0 +1,78 @@
+{% extends 'base_layout.html' %}
+{% load static from static %}
+
+{% block content %}
+
+<title>Find the Treasure</title>
+
+{% include 'navbar.html' %}
+
+<style>
+.clue{
+    text-decoration: none;
+    color: white;
+    text-align: center;
+} 
+</style>
+
+<!-- Trigger/Open The Modal -->
+<button id="myBtn" class="link-light p-1 fixed-top fs-6 fw-semibold bg-transparent" style="cursor: pointer; border: 2px solid white; border-radius: 10px; width: 100px; margin:10px 0 0 250px;">Guidelines</button>
+
+<div style="width: 500px; margin: 50px auto 0 auto;">
+    <h1 class="container-fluid heading text-center">Find the Treasure.</h1>
+</div>
+
+<div class="container-fluid q-container bg-transparent" style="margin: 0 auto 0 60px; overflow: hidden;">
+
+    <div class="chart-container mr-2" style="margin: 0 auto; transform: scale(1.07);">
+        <img src="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709406040/assets/images/treasure_map_sn6esk.png" class="mx-5" alt="treasure chart" style="border-radius: 20px; margin: 10px auto;">
+    </div>
+
+    div class
+    <div class="link p-2 text-center" style="width: 80px; position: absolute; left: 325px; top: 525px;" >
+        <a class="clue" href="{% url 'levels:level-five:clue_one' %}">start <i class="bi bi-unlock"></i></a>
+    </div>
+
+    <div class="link p-2 text-center" style="width: 100px; position: absolute; left: 555px; top: 460px;">
+        <a class="clue" href="{% url 'levels:level-five:clue_two' %}" {% if clue1_complete != True %} style="pointer-events: none;" {% else %} style="pointer-events: auto;" {% endif %}>clue #2 {% if clue1_complete != True %} <i class="bi bi-lock"></i> {% else %} <i class="bi bi-unlock"></i> {% endif %}</a>
+    </div>
+
+    <div class="link p-2 text-center" style="width: 100px; position: absolute; right: 655px; top: 450px;">
+        <a class="clue" href="{% url 'levels:level-five:clue_three' %}" {% if clue2_complete != True %} style="pointer-events: none;" {% else %} style="pointer-events: auto;" {% endif %}>clue #3 {% if clue2_complete != True %} <i class="bi bi-lock"></i> {% else %} <i class="bi bi-unlock"></i> {% endif %}</a>
+    </div>
+
+    <div class="link p-2 text-center" style="width: 80px; position: absolute; right: 360px; top: 330px;">
+        <a class="clue" href="{% url 'levels:level-five:clue_four' %}" {% if clue3_complete != True %} style="pointer-events: none;" {% else %} style="pointer-events: auto;" {% endif %}>finish {% if clue3_complete != True %} <i class="bi bi-lock"></i> {% else %} <i class="bi bi-unlock"></i> {% endif %}</i></a>
+    </div>
+
+<div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+  
+        <span class="close">&times;</span>
+  
+        <div class="modal-header">
+  
+            <h3>Task Guidelines</h3>
+  
+          </div>
+          <div class="modal-body">
+  
+            <ul class="fs-5">
+                <li>Some text in the Modal Body</li>
+                <li>Some other text...</li>
+            </ul>
+  
+          </div>
+  
+    </div>
+  
+</div>
+
+<script src="{% static 'modal.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends 'base_layout.html' %}
+{% load static from static %}
+
+{% block content %}
+
+<title>Hidden Message 2 | Technova</title>
+
+{% include 'navbar.html' %}
+
+<!-- Trigger/Open The Modal -->
+<button id="myBtn" class="link-light p-1 fixed-top fs-6 fw-semibold bg-transparent" style="cursor: pointer; border: 2px solid white; border-radius: 10px; width: 100px; margin:10px 0 0 250px;">Guidelines</button>
+
+<div class="container-fluid tasks-container">
+    <h1 class="heading">Figure Out The Hidden Message</h1>
+    <div class="continer-fluid bg-black lore-container bg-gradient">
+        <p>In the serene village of Evergreen Vale, Ouroboros lived a life of quiet reflection, captivated by the mysteries of the surrounding wilderness. A chance discovery—an aged parchment bearing cryptic symbols—ignited his curiosity and set him on an extraordinary journey. Seeking counsel from village elders, he learned of a legendary scroll said to unveil Blackwood Creek's secrets.</p>
+
+        <p>Driven by an insatiable thirst for knowledge, Ouroboros left behind his familiar world, guided by whispers of forgotten lore and the forest's ancient murmurs. On his journey to the unknown he carried with him, in his mind, a chant that gave him immense mental fortitude in the most daring of predicaments that he might come across on his journey, taught to him by his mother who was a beloved white witch of his land. She taught him this chant in a certain cryptic way so as to not be used by evil forces dormant in the realm. On his path into the forest he decides to decrypt this mantra to reveal its true essence.</p>
+            
+
+        <div class="audio-container" style=" width: 500px; display: flex; align-items: center; justify-content: space-around;">
+            
+            <audio controls>
+                <source src="https://res.cloudinary.com/dh7c22gw9/video/upload/v1709406103/assets/audios/level2_task2_audio_qllcqp.wav" type="audio/wav">
+            Your browser does no support audio elements. Download the audio to play.
+            </audio>
+
+            <a href="https://res.cloudinary.com/dh7c22gw9/video/upload/v1709406103/assets/audios/level2_task2_audio_qllcqp.wav" class="link mx-2" style="width: 50px; text-align: center; padding: 5px;" target="_blank" title="Click to listen in a new tab."><i class="bi bi-soundwave"></i></a>
+
+        </div>
+        
+        <form action="{% url 'levels:level-two:audio_decode_submit' %}" method="post" class="answer-form">
+            {% csrf_token %}
+
+            {{ form }}
+
+            <button type="submit" class="link" name="answer-submit" id="answer-submit" style="display: block; margin: 10px 0;">Check</button>
+
+            <span class="error text-danger" name="error" style="visibility: hidden;">Try Again</span>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+
+        <span class="close">&times;</span>
+
+        <div class="modal-header">
+
+            <h3>Task Guidelines</h3>
+
+          </div>
+          <div class="modal-body">
+
+            <ul class="fs-5">
+                <li>You are allowed to use online tools to find the answer.</li>
+                <li>There is no time limit.</li>
+                <li>You should clear your doubts during the task, with your handler directly and immediately.</li>
+                <li>You task will only end when you check the correct answer in proper format.</li>
+                <li>You are allowed to check the answer as many times as you want.</li>
+            </ul>
+
+          </div>
+
+    </div>
+
+</div>
+
+<script src="{% static "modal.js" %}"></script>
+<script>const cipher = "{{ cipher }}";</script><script src="{% static "answer-handler.js" %}"></script>
+
+{% endblock %}

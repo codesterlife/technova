@@ -1,0 +1,139 @@
+{% extends "base_layout.html" %}
+{% load static from static %}
+
+{% block content %}
+
+<title>Location Guesser | Technova</title>
+
+<style>
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+  }
+  .gallery img {
+    margin: 10px;
+    border: 3px solid #ddd;
+    max-width: 25vw;
+    transition: 0.5s ease;
+  }
+
+  .gallery img:hover{
+    transform: scale(1.025);
+  }
+
+</style>
+
+{% include 'navbar.html' %}
+
+<!-- Trigger/Open The Modal -->
+<button id="myBtn" class="link-light p-1 fixed-top fs-6 fw-semibold bg-transparent" style="cursor: pointer; border: 2px solid white; border-radius: 10px; width: 100px; margin:10px 0 0 250px;">Guidelines</button>
+
+<div class="tasks-container">
+    <h1 class="heading">Location Guesser</h1>
+
+    <div class="continer-fluid bg-black q-container bg-gradient" style="max-width: 100%; overflow-x: auto; margin: 2vh auto; display: flex; flex-direction: column;">
+
+        <h4>In this Task you have to find where the given images are located using <span class="text-success fw-semibold">Google Maps Street View</span>. A general area is given in the map below.</h4>
+
+        <div class="sub-container" style="display: flex; flex-direction: column; margin: 2em auto 2em auto;">
+
+            <div class="sub-sub-container" style="display: flex;">
+
+                <a href="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709465098/assets/images/location-guesser-images/game_location_xvdzl3.png" style="align-self: baseline; justify-self: flex-start;" target="_blank" title="Click for Expanded view.">
+
+                    <img src="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709465098/assets/images/location-guesser-images/game_location_xvdzl3.png" width="640" height="400" style="border-radius: 10px; align-self: center; justify-self: flex-start; margin: auto auto 2em auto;">
+
+                </a>
+
+                <a href="https://www.google.com/maps/place/Thenhipalam,+Kerala/@11.1345596,75.8903319,14z/data=!4m6!3m5!1s0x3ba651d1fb20b40b:0xd15c44b13dfe431c!8m2!3d11.1338609!4d75.8940262!16s%2Fm%2F04gqv9x?hl=en&entry=ttu" target="_blank" title="Open Google Street View in a new tab." class="link px-4 py-2" style="height: 45px; align-self: center;"><i class="bi bi-geo-alt"></i> Open Google Street View</a>
+
+            </div>
+
+            <hr>
+
+            <h3>Find Where these signs are located in the given area.</h3>
+
+            <div class="gallery">
+
+                <a href="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709465081/assets/images/location-guesser-images/loc_1_szz2tv.png" style="align-self: baseline; justify-self: flex-start;" target="_blank" title="Click for Expanded view.">
+                    <img src="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709465081/assets/images/location-guesser-images/loc_1_szz2tv.png" alt="image">
+                </a>
+
+                <a href="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709465067/assets/images/location-guesser-images/loc_2_bvilgk.png" style="align-self: baseline; justify-self: flex-start;" target="_blank" title="Click for Expanded view.">
+                    <img src="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709465067/assets/images/location-guesser-images/loc_2_bvilgk.png" alt="image">
+                </a>
+
+                <a href="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709465058/assets/images/location-guesser-images/loc_3_knsqjk.png" style="align-self: baseline; justify-self: flex-start;" target="_blank" title="Click for Expanded view.">
+                    <img src="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709465058/assets/images/location-guesser-images/loc_3_knsqjk.png" alt="image">
+                </a>
+
+                <a href="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709464994/assets/images/location-guesser-images/loc_4_luoeg0.png" style="align-self: baseline; justify-self: flex-start;" target="_blank" title="Click for Expanded view.">
+                    <img src="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709464994/assets/images/location-guesser-images/loc_4_luoeg0.png" alt="image">
+                </a>
+
+                <a href="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709465018/assets/images/location-guesser-images/loc_5_tpcntc.png" style="align-self: baseline; justify-self: flex-start;" target="_blank" title="Click for Expanded view.">
+                    <img src="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709465018/assets/images/location-guesser-images/loc_5_tpcntc.png" alt="image">
+                </a>
+
+                <a href="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709464992/assets/images/location-guesser-images/loc_6_ogrqqh.png" style="align-self: baseline; justify-self: flex-start;" target="_blank" title="Click for Expanded view.">
+                    <img src="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709464992/assets/images/location-guesser-images/loc_6_ogrqqh.png" alt="image">
+                </a>
+
+
+                <a href="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709464958/assets/images/location-guesser-images/loc_7_wwrlzu.png" style="align-self: baseline; justify-self: flex-start;" target="_blank" title="Click for Expanded view.">
+                    <img src="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709464958/assets/images/location-guesser-images/loc_7_wwrlzu.png" alt="image">
+                </a>
+
+            </div>
+            
+        </div>
+
+        <form method="post" action="{% url 'levels:level-three:location_guesser_submit' %}">
+            {% csrf_token %}
+            <input type="submit" class="link" id="submitBtn" value="End Task" style="display: block; margin: 50px auto 0 auto;">
+        </form>
+
+    </div>
+
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+
+        <span class="close">&times;</span>
+
+        <div class="modal-header">
+
+            <h3>Task Guidelines</h3>
+
+          </div>
+          <div class="modal-body">
+
+            <ul class="fs-5">
+                <li>There is no time limit.</li>
+                <li>You are not allowed to search for the locations in Google maps search box or in any another searching facility.</li>
+                <li>You handler will setup the Google Maps Street view mode in the new browser tab. You are not allowed to do it on your own.</li>
+                <li>You are only allowed to use Google Maps Street view mode. Any other modes are not allowed.</li>
+                <li>Your target locations can be anywhere in the circled area of the map image given below.</li>
+                <li>You have to take screenshots for found locations and store it in a new folder so that your handler can verify them.</li>
+                <li>You have to find all locations to complete the task.</li>
+                <li>Your task will only end after your handler clicks the "End Task" button</li>
+                <li>You are not allowed to click the "End Task" button yourself.</li>
+            </ul>
+
+          </div>
+
+    </div>
+
+</div>
+
+<script src="{% static 'modal.js' %}"></script>
+<script src="{% static 'submit-unlock.js' %}"></script>
+
+{% endblock %}

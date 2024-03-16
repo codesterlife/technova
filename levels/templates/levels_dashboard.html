@@ -1,0 +1,17 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<title>Levels | Technova</title>
+
+{% include 'navbar.html' %}
+
+<div class="position-absolute top-50 start-50 translate-middle text-center" style="display: flex;">
+    <h3 class="px-1" style="width: 220px"><a class="p-4 link" href="{% url 'levels:level-one:level-one-dashboard' %}" {% if level1_complete == True %} style="pointer-events: none;" {% endif %}>Level <i class="bi bi-1-square"></i>{% if level1_complete == True %} <i class="bi bi-check-lg"></i>{% endif %}</a></h3>
+    <h3 class="px-1" style="width: 220px;"><a class="p-4 link" href="{% url 'levels:level-two:level-two-dashboard' %}" {% if level2_complete == True %} style="pointer-events: none;" {% endif %}>Level <i class="bi bi-2-square"></i>{% if level2_complete == True %} <i class="bi bi-check-lg"></i>{% endif %}</a></h3>
+    <h3 class="px-1" style="width: 220px;"><a class="p-4 link" href="{% url 'levels:level-three:level-three-dashboard' %}" {% if level3_complete == True %} style="pointer-events: none;" {% endif %}>Level <i class="bi bi-3-square"></i>{% if level3_complete == True %} <i class="bi bi-check-lg"></i>{% endif %}</a></h3>
+    <h3 class="px-1" style="width: 220px;"><a class="p-4 link" href="{% url 'levels:level-four:level-four-dashboard' %}" {% if level4_complete == True %} style="pointer-events: none;" {% endif %}>Level <i class="bi bi-4-square"></i>{% if level4_complete == True %} <i class="bi bi-check-lg"></i>{% endif %}</a></h3>
+    <h3 class="px-1" style="width: 220px;"><a class="p-4 link" href="{% url 'levels:level-five:level-five-dashboard' %}" {% if level5_complete == True %} style="pointer-events: none;" {% endif %}>Level <i class="bi bi-5-square"></i>{% if level5_complete == True %} <i class="bi bi-check-lg"></i>{% endif %}</a></h3>
+</div>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<title>Technova</title>
+
+<div class="container-fluid bg-gradient bg-black" style="width: 45%; height: 30%; margin: 10% auto 0 auto; padding: 100px; border-radius: 10px;">
+    <h3 style="text-align: center;">You Already Played this task. Go back and play another one.</h3>
+    <input type="submit" class="link" value="Back" onClick="javascript:history.go(-1);" style="padding: 5px; width: 100px; font-size: large;">
+</div>
+
+{% endblock %}

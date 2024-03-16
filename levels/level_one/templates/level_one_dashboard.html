@@ -1,0 +1,55 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<title>Level 1 | Technova</title>
+
+{% include 'navbar.html' %}
+
+<style>
+    a{
+        all:unset;
+        cursor: pointer;
+    }
+</style>
+
+<div class="container-fluid bg-transparent tasks-container level_one">
+    <h1>Level 1</h1>
+
+    <div class="row mt-5">
+
+        <div class="col-sm-3 mb-3 mb-sm-0">
+            <div class="card link p-3">
+                <h3><a href="{% url 'levels:level-one:quiz_detail' quiz.0.id %}">Task <i class="bi bi-1-square"></i><h5 style="width: 40px; margin: 0 auto;">MCQ <span class="text-info fs-6">30<span></h5></a></h3>
+            </div>
+        </div>
+
+        <div class="col-sm-3 mb-3 mb-sm-0">
+            <div class="card link p-3">
+                <h3><a href="{% url 'levels:level-one:qna_detail' quiz.1.id %}">Task <i class="bi bi-2-square"></i><h5 style="width: 170px; margin: 0 auto;">Knowledge Quest <span class="text-info fs-6">30<span></h5></a></h3>
+            </div>
+        </div>
+
+        <div class="col-sm-3 mb-3 mb-sm-0">
+            <div class="card link p-3">
+                <h3><a href="{% url 'levels:level-one:sudoku_detail' %}">Task <i class="bi bi-3-square"></i><h5 style="width: 80px; margin: 0 auto;">Sudoku <span class="text-info fs-6">20<span></h5></a></h3>
+            </div>
+        </div>
+
+        <div class="col-sm-3 mb-3 mb-sm-0">
+            <div class="card link p-3">
+                <h3><a href="{% url 'levels:level-one:puzzle_detail' %}">Task <i class="bi bi-4-square"></i><h5 style="width: 150px; margin: 0 auto;">Jigsaw Puzzle <span class="text-info fs-6">20<span></h5></a></h3>
+            </div>
+        </div>
+
+        <div class="col-sm-3 mb-3 mb-sm-0">
+            <div class="card link p-3">
+                <h3><a href="{% url 'levels:level-one:crossword_detail' %}">Task <i class="bi bi-5-square"></i><h5 style="width: 100px; margin: 0 auto;">Crossword <span class="text-info fs-6">20<span></h5></a></h3>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'base_layout.html' %}
+{% load static from static %}
+
+{% block content %}
+
+<title>Task 2 | QnA</title>
+
+{% include 'navbar.html' %}
+
+<!-- Trigger/Open The Modal -->
+<button id="myBtn" class="link-light p-1 fixed-top fs-6 fw-semibold bg-transparent" style="cursor: pointer; border: 2px solid white; border-radius: 10px; width: 100px; margin:10px 0 0 250px;">Guidelines</button>
+
+<div style="width: 400px; margin: 50px auto 0 auto;">
+
+    <h1 class="heading">Knowledge Quest</h1>
+
+</div>
+
+<div class="container-fluid q-container bg-black bg-gradient" style="margin: 0 auto 0 auto;">
+    <h1>Answer These Questions</h1>
+    <hr>
+    <form method="post" action="{% url 'levels:level-one:qna_submit' quiz.id %}">
+        {% csrf_token %}
+        {% for question in qna_questions %}
+        <fieldset>
+            <div class="item-container" style="display: flex;">
+
+                <div class="qna-answer-container mx-5">
+                    <legend>{{ forloop.counter }}. {{ question.qna_question }}</legend>
+                    <label for="question_{{ question.id }}">Answer: </label>
+                    <input type="text" name="question_{{ question.id }}">
+                </div>
+
+                {% if question.img %}
+                <a href="{{ question.img.url }}" target="_blank" title="click for expanded view.">
+                  <img src="{{ question.img.url }}" class="mx-5" alt="question img" width="320" height="240" style="border-radius: 20px;">
+                </a>
+                {% endif %}
+
+            </div>
+            <hr>
+        </fieldset>
+        {% endfor %}
+        {% if not submit_button %} <input class="link" type="submit" value="submit"> {% endif %}
+    </form>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+
+        <span class="close">&times;</span>
+
+        <div class="modal-header">
+
+            <h3>Task Guidelines</h3>
+
+          </div>
+          <div class="modal-body">
+
+            <ul class="fs-5">
+                <li>There is a total of 15 questions.</li>
+                <li>For each right answer you will be awarded 2 points for a total of maximum 30 points.</li>
+                <li>There is no time limit.</li>
+                <li>After answering all the questions you have to contact your handler to verify your answers.</li>
+                <li>You should only click submit after your handler has verified your window.</li>
+                <li>You should clear your doubts when answering questions with your handler directly and immediately.</li>
+                <li>You are not allowed to search online for answers</li>
+            </ul>
+
+          </div>
+
+    </div>
+
+</div>
+
+<script src="{% static "modal.js" %}"></script>
+
+{% endblock %}

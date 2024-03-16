@@ -1,0 +1,14 @@
+{% extends 'base_layout.html' %}
+{% load static from static%}
+
+{% block content %}
+
+<title>Technova</title>
+
+<div class="container-fluid bg-gradient bg-black" style="width: 45%; height: 30%; margin: 10% auto 0 auto; padding: 100px; border-radius: 10px;">
+    <h3 style="text-align: center;" class="jackpot">JACKPOT!!! 🏆🌟</h3>
+    <h6 style="text-align: center; margin: 15px auto 15px auto;">Congratulations! You have won Technova 6.0. Get ready for the prize of a lifetime!</h6>
+    <a class="link py-2 px-4" style="width: 110px; font-weight: bold;" href="{% url 'technova-home' %}"><i class="bi bi-house"> </i>Home</a>
+</div>
+
+{% endblock %}
