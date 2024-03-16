@@ -10,7 +10,7 @@
 
 #### The live technova website: <https://technova.vercel.app/>
 
-##### Technova is made as a part of **[Insight '24](https://insight.uoc.ac.in) Technical Festival hosted by Centre for Computer Science and Information Technology (CCSIT), Calicut University Campus.
+##### Technova is made as a part of [Insight '24](https://insight.uoc.ac.in) Technical Festival hosted by Centre for Computer Science and Information Technology (CCSIT), Calicut University Campus.
 
 
-##### Technova 6.0 is the sole brainchild of Abhiram Cherumadatil which is ME!
+##### Technova 6.0 is the sole brainchild of Abhiram Cherumadathil which is ME!
